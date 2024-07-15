@@ -1,0 +1,114 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.date-selection {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.date-selection label, .date-selection select {
+    margin-right: 10px;
+}
+
+.date-selection select {
+    padding: 5px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    background-color: #f9f9f9;
+}
+
+.cards-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+
+.card {
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.2s;
+}
+
+.card h3 {
+    margin-top: 0;
+}
+
+.checkbox-container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.styled-checkbox {
+    display: none;
+}
+
+.styled-checkbox + label {
+    position: relative;
+    padding-left: 25px;
+    cursor: pointer;
+    user-select: none;
+}
+
+.styled-checkbox + label::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 16px;
+    height: 16px;
+    border: 2px solid #007BFF;
+    border-radius: 4px;
+    transform: translateY(-50%);
+    transition: background-color 0.2s;
+}
+
+.styled-checkbox:checked + label::before {
+    background-color: #007BFF;
+    border-color: #007BFF;
+}
+
+.styled-checkbox:checked + label::after {
+    content: '✔';
+    position: absolute;
+    top: 50%;
+    left: 2px;
+    transform: translateY(-50%);
+    font-size: 12px;
+    color: white;
+}
+
+.done {
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+}
+
+.not-done {
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+}

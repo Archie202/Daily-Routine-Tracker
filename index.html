@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Routine Tracker</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Daily Routine Tracker</h1>
+        <div class="date-selection">
+            <label for="day">Select Day:</label>
+            <select id="day" onchange="loadRoutine()"></select>
+            <label for="month">Select Month:</label>
+            <select id="month" onchange="populateDays(); loadRoutine()">
+                <option value="7">July</option>
+                <option value="8">August</option>
+                <option value="9">September</option>
+                <option value="10">October</option>
+                <option value="11">November</option>
+                <option value="12">December</option>
+            </select>
+            <label for="year">Select Year:</label>
+            <select id="year" onchange="loadRoutine()"></select>
+        </div>
+        <div class="cards-container">
+            <div class="card" id="card1">
+                <h3>6:00-6:15 AM: Wake Up and Hydrate</h3>
+                <p><b>Wake Up:</b> Aim to wake up at 6:00 AM consistently.</p>
+                <p><b>Hydrate:</b> Start your day with a glass of water to rehydrate your body.</p>
+                <div class="checkbox-container">
+                    <input type="checkbox" id="done1" class="styled-checkbox" onclick="markAsDone('card1', true)">
+                    <label for="done1">Done</label>
+                    <input type="checkbox" id="notDone1" class="styled-checkbox" onclick="markAsDone('card1', false)">
+                    <label for="notDone1">Not Done</label>
+                </div>
+            </div>
+            <div class="card" id="card2">
+                <h3>6:15-6:30 AM: Light Exercise or Stretching</h3>
+                <p><b>Exercise:</b> Do a short, light exercise routine or stretching to get your blood flowing. This can include yoga, a quick walk, or a few basic exercises.</p>
+                <div class="checkbox-container">
+                    <input type="checkbox" id="done2" class="styled-checkbox" onclick="markAsDone('card2', true)">
+                    <label for="done2">Done</label>
+                    <input type="checkbox" id="notDone2" class="styled-checkbox" onclick="markAsDone('card2', false)">
+                    <label for="notDone2">Not Done</label>
+                </div>
+            </div>
+            <div class="card" id="card3">
+                <h3>6:30-7:00 AM: Mindfulness or Meditation</h3>
+                <p><b>Mindfulness/Meditation:</b> Spend 10-15 minutes meditating or practicing mindfulness. This can help you clear your mind and set a positive tone for the day.</p>
+                <div class="checkbox-container">
+                    <input type="checkbox" id="done3" class="styled-checkbox" onclick="markAsDone('card3', true)">
+                    <label for="done3">Done</label>
+                    <input type="checkbox" id="notDone3" class="styled-checkbox" onclick="markAsDone('card3', false)">
+                    <label for="notDone3">Not Done</label>
+                </div>
+            </div>
+            <div class="card" id="card4">
+                <h3>7:00-7:30 AM: Healthy Breakfast</h3>
+                <p><b>Breakfast:</b> Have a nutritious breakfast. Include proteins, healthy fats, and whole grains to keep your energy levels steady.</p>
+                <div class="checkbox-container">
+                    <input type="checkbox" id="done4" class="styled-checkbox" onclick="markAsDone('card4', true)">
+                    <label for="done4">Done</label>
+                    <input type="checkbox" id="notDone4" class="styled-checkbox" onclick="markAsDone('card4', false)">
+                    <label for="notDone4">Not Done</label>
+                </div>
+            </div>
+            <div class="card" id="card5">
+                <h3>7:30-8:00 AM: Plan Your Day</h3>
+                <p><b>Planning:</b> Spend this time organizing your day. Prioritize your tasks and set clear goals for your study session and work.</p>
+                <div class="checkbox-container">
+                    <input type="checkbox" id="done5" class="styled-checkbox" onclick="markAsDone('card5', true)">
+                    <label for="done5">Done</label>
+                    <input type="checkbox" id="notDone5" class="styled-checkbox" onclick="markAsDone('card5', false)">
+                    <label for="notDone5">Not Done</label>
+                </div>
+            </div>
+            <div class="card" id="card6">
+                <h3>8:00-9:00 AM: Learning and Personal Development</h3>
+                <p><b>Learning:</b> Dedicate this hour to reading, learning something new, or personal development activities. This will prepare your mind for the study session.</p>
+                <div class="checkbox-container">
+                    <input type="checkbox" id="done6" class="styled-checkbox" onclick="markAsDone('card6', true)">
+                    <label for="done6">Done</label>
+                    <input type="checkbox" id="notDone6" class="styled-checkbox" onclick="markAsDone('card6', false)">
+                    <label for="notDone6">Not Done</label>
+                </div>
+            </div>
+            <div class="card" id="card7">
+                <h3>9:00 AM - 12:00 PM: Focused Study Time</h3>
+                <p><b>Study:</b> Begin your study session. Break your study time into focused intervals (e.g., 50 minutes of study with a 10-minute break).</p>
+                <div class="checkbox-container">
+                    <input type="checkbox" id="done7" class="styled-checkbox" onclick="markAsDone('card7', true)">
+                    <label for="done7">Done</label>
+                    <input type="checkbox" id="notDone7" class="styled-checkbox" onclick="markAsDone('card7', false)">
+                    <label for="notDone7">Not Done</label>
+                </div>
+            </div>
+            <div class="card" id="card8">
+                <h3>Tips to Avoid Distractions</h3>
+                <p><b>Phone Management:</b> Avoid checking your phone first thing in the morning. Instead, set specific times to check messages.</p>
+                <p><b>Task Prioritization:</b> Use tools like to-do lists or apps to prioritize important tasks and minimize time spent on less important activities.</p>
+                <div class="checkbox-container">
+                    <input type="checkbox" id="done8" class="styled-checkbox" onclick="markAsDone('card8', true)">
+                    <label for="done8">Done</label>
+                    <input type="checkbox" id="notDone8" class="styled-checkbox" onclick="markAsDone('card8', false)">
+                    <label for="notDone8">Not Done</label>
+                </div>
+            </div>
+            <div class="card" id="card9">
+                <h3>Evening Preparation</h3>
+                <p><b>Night Before:</b> Prepare for the next day the evening before. Set out your clothes, organize your workspace, and create a rough plan for your morning.</p>
+                <div class="checkbox-container">
+                    <input type="checkbox" id="done9" class="styled-checkbox" onclick="markAsDone('card9', true)">
+                    <label for="done9">Done</label>
+                    <input type="checkbox" id="notDone9" class="styled-checkbox" onclick="markAsDone('card9', false)">
+                    <label for="notDone9">Not Done</label>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="scripts.js"></script>
+</body>
+</html>
