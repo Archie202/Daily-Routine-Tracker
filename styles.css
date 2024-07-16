@@ -6,109 +6,155 @@ body {
 }
 
 .container {
-    max-width: 800px;
-    margin: 50px auto;
+    max-width: 1200px;
+    margin: 0 auto;
     padding: 20px;
-    background-color: #fff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
 }
 
 h1 {
     text-align: center;
-    margin-bottom: 30px;
+    color: #333;
 }
 
 .date-selection {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
     margin-bottom: 20px;
 }
 
-.date-selection label, .date-selection select {
-    margin-right: 10px;
-}
-
+.date-selection label,
 .date-selection select {
-    padding: 5px;
-    border-radius: 4px;
-    border: 1px solid #ccc;
-    font-size: 16px;
-    background-color: #f9f9f9;
+    margin: 5px;
+    padding: 10px;
+    font-size: 1rem;
 }
 
 .cards-container {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
 }
 
 .card {
-    background-color: #ffffff;
+    background-color: #fff;
     border: 1px solid #ddd;
     border-radius: 8px;
-    padding: 15px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    transition: background-color 0.2s;
+    margin: 10px;
+    padding: 20px;
+    width: calc(33% - 40px); /* 3 cards per row */
+    box-sizing: border-box;
+    transition: transform 0.2s;
 }
 
 .card h3 {
     margin-top: 0;
+    color: #333;
 }
 
-.checkbox-container {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    gap: 10px;
-    margin-top: 10px;
+.card p {
+    margin: 5px 0;
+    color: #666;
 }
 
-.styled-checkbox {
+.card input[type="checkbox"] {
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.card input[type="checkbox"]:checked + label {
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+input[type="checkbox"]:checked#done1 + label {
+    background-color: green;
+}
+
+input[type="checkbox"]:checked#notDone1 + label {
+    background-color: red;
+}
+
+@media (max-width: 768px) {
+    .card {
+        width: calc(50% - 40px); /* 2 cards per row */
+    }
+}
+
+@media (max-width: 480px) {
+    .card {
+        width: calc(100% - 40px); /* 1 card per row */
+    }
+
+    .date-selection {
+        flex-direction: column;
+    }
+
+    .date-selection label,
+    .date-selection select {
+        width: 100%;
+    }
+}
+
+/* Dropdown Styling */
+select {
+    appearance: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 10px;
+    font-size: 1rem;
+    background: url('data:image/svg+xml;charset=US-ASCII,<svg%20xmlns="http://www.w3.org/2000/svg"%20width="20"%20height="20"%20viewBox="0%200%2020%2020"><polygon%20points="0,0%2010,10%2020,0"%20fill="%23999"/><polygon%20points="0,20%2010,10%2020,20"%20fill="%23999"/></svg>') no-repeat right 10px center;
+    background-size: 12px 12px;
+}
+
+select:focus {
+    outline: none;
+    border-color: #333;
+}
+
+option {
+    padding: 10px;
+}
+
+/* Checkbox Styling */
+.card input[type="checkbox"] {
     display: none;
 }
 
-.styled-checkbox + label {
-    position: relative;
-    padding-left: 25px;
+.card label {
     cursor: pointer;
-    user-select: none;
-}
-
-.styled-checkbox + label::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 0;
-    width: 16px;
-    height: 16px;
-    border: 2px solid #007BFF;
+    padding: 10px;
+    border: 1px solid #ccc;
     border-radius: 4px;
-    transform: translateY(-50%);
-    transition: background-color 0.2s;
+    display: inline-block;
 }
 
-.styled-checkbox:checked + label::before {
-    background-color: #007BFF;
-    border-color: #007BFF;
-}
-
-.styled-checkbox:checked + label::after {
-    content: '✔';
-    position: absolute;
-    top: 50%;
-    left: 2px;
-    transform: translateY(-50%);
-    font-size: 12px;
+.card input[type="checkbox"]:checked + label {
     color: white;
 }
 
-.done {
-    background-color: #d4edda;
-    border-color: #c3e6cb;
+.card input[type="checkbox"]:checked#done1 + label,
+.card input[type="checkbox"]:checked#done2 + label,
+.card input[type="checkbox"]:checked#done3 + label,
+.card input[type="checkbox"]:checked#done4 + label,
+.card input[type="checkbox"]:checked#done5 + label,
+.card input[type="checkbox"]:checked#done6 + label,
+.card input[type="checkbox"]:checked#done7 + label,
+.card input[type="checkbox"]:checked#done8 + label,
+.card input[type="checkbox"]:checked#done9 + label {
+    background-color: green;
 }
 
-.not-done {
-    background-color: #f8d7da;
-    border-color: #f5c6cb;
+.card input[type="checkbox"]:checked#notDone1 + label,
+.card input[type="checkbox"]:checked#notDone2 + label,
+.card input[type="checkbox"]:checked#notDone3 + label,
+.card input[type="checkbox"]:checked#notDone4 + label,
+.card input[type="checkbox"]:checked#notDone5 + label,
+.card input[type="checkbox"]:checked#notDone6 + label,
+.card input[type="checkbox"]:checked#notDone7 + label,
+.card input[type="checkbox"]:checked#notDone8 + label,
+.card input[type="checkbox"]:checked#notDone9 + label {
+    background-color: red;
 }
